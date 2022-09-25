@@ -8,3 +8,4 @@
 #include "RayTracerMath.h"
 #include "Tuple.h"
 #include "Color.h"
+#include "Canvas.h"
