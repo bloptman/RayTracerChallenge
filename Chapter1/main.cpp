@@ -1,21 +1,5 @@
-#include "Tuple.h"
-#include <iostream>
-
-struct Projectile
-{
-	Tuple m_position;
-	Tuple m_velocity;
-
-	Projectile(Tuple p, Tuple v) : m_position(p), m_velocity(v) {};
-};
-
-struct Enviornment
-{
-	Tuple m_gravity;
-	Tuple m_wind;
-
-	Enviornment(Tuple g, Tuple w) : m_gravity(g), m_wind(w) {};
-};
+#include "Projectile.h"
+#include "Enviornment.h"
 
 void Tick(Enviornment env, Projectile& proj)
 {
@@ -35,15 +19,13 @@ int main()
 	Projectile p(initalPosition, initalVelocity);
 	Enviornment e(gravity, wind);
 
-	while (p.m_position.Y() > 0)
+	int i = 0;
+	while (p.IsAirborne())
 	{
 		Tick(e, p);
-
-		std::cout << "X: " << p.m_position.X() << std::endl;
-		std::cout << "Y: " << p.m_position.Y() << std::endl;
-		std::cout << "Z: " << p.m_position.Y() << std::endl;
-
-		std::cout << std::endl;
+		std::cout << "Iteration: " << i << std::endl;
+		std::cout << p.m_position << std::endl;
+		++i;
 	}
 
 	return 0;
