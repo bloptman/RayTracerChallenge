@@ -19,11 +19,19 @@ public:
 	void WritePixel(unsigned int x, unsigned y, const Color& c);
 	Color PixelAt(unsigned int x, unsigned int y) const;
 
+	std::string DebugString() const;
+
+	friend std::ostream& operator<<(std::ostream& os, const Canvas& c);
 
 private:
 	unsigned int m_w;
 	unsigned int m_h;
 	Color** m_pixelData;
 };
+
+void Export(const Canvas& c, std::string fileName);
+std::string CanvasToPPM(const Canvas& c);
+std::string Construct_PPM_Header(const Canvas& c);
+std::string Construct_PPM_Row(const Canvas& c, unsigned int row);
 
 #endif
