@@ -1,5 +1,6 @@
 #include "RayTracerMath.h"
 #include "Tuple.h"
+#include <sstream>
 
 bool Tuple::IsPoint() const
 {
@@ -135,6 +136,20 @@ Tuple operator/(const Tuple& lhs, float c)
 	float wc = lhs.W() / c;
 
 	return Tuple(xc, yc, zc, wc);
+}
+
+std::string Tuple::DebugString() const
+{
+	std::stringstream stream;
+
+	stream << "<" << m_x << ", " << m_y << ", " << m_z << ", " << m_w << ">";
+	return stream.str();
+}
+
+std::ostream& operator<<(std::ostream& os, const Tuple& t)
+{
+	os << t.DebugString() << std::endl;
+	return os;
 }
 
 Tuple Point(float x, float y, float z)

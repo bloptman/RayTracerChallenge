@@ -2,6 +2,7 @@
 #define TUPLE_H
 
 #include <iostream>
+#include <string>
 
 class Tuple
 {
@@ -28,6 +29,9 @@ public:
 	Tuple Normalize() const;
 	float Dot(const Tuple& rhs) const;
 	Tuple Cross(const Tuple& rhs) const;
+
+	std::string DebugString() const;
+	friend std::ostream& operator<<(std::ostream& os, const Tuple& t);
 
 private:
 	// Tuple components
