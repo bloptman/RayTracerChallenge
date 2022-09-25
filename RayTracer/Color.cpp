@@ -9,6 +9,23 @@ std::string Color::DebugString() const
 	return stream.str();
 }
 
+Color Color::ScaleColorValue(int maxColorValue)
+{
+	int rc = ScaleColorComponent(R(), maxColorValue);
+	int gc = ScaleColorComponent(G(), maxColorValue);
+	int bc = ScaleColorComponent(B(), maxColorValue);
+
+	return Color(rc, gc, bc);
+}
+
+std::string Color::CanvasOutputString() const
+{
+	std::stringstream stream;
+	stream << R() << " " << G() << " " << B() << " ";
+
+	return stream.str();
+}
+
 std::ostream& operator<<(std::ostream& os, const Color& c)
 {
 	os << c.DebugString();
@@ -39,3 +56,19 @@ Color operator*(const Color& lhs, const Color& rhs)
 	return Color(rc, gc, bc);
 }
 
+int ScaleColorComponent(float component, int maxColorValue)
+{
+	int scaledVal = component * maxColorValue;
+
+	if (scaledVal < 0)
+	{
+		scaledVal = 0;
+	}
+
+	else if (scaledVal > maxColorValue)
+	{
+		scaledVal = maxColorValue;
+	}
+
+	return scaledVal;
+}
