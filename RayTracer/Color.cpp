@@ -11,7 +11,7 @@ std::string Color::DebugString() const
 
 std::ostream& operator<<(std::ostream& os, const Color& c)
 {
-	os << c.DebugString() << std::endl;
+	os << c.DebugString();
 	return os;
 }
 

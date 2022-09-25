@@ -148,7 +148,7 @@ std::string Tuple::DebugString() const
 
 std::ostream& operator<<(std::ostream& os, const Tuple& t)
 {
-	os << t.DebugString() << std::endl;
+	os << t.DebugString();
 	return os;
 }
 
