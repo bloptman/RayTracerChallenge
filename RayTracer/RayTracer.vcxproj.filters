@@ -21,12 +21,18 @@
     <ClInclude Include="Tuple.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RayTracerMath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Tuple.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
